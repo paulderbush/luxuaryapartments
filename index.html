@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Luxury Apartments in London</title>
+<link rel="icon" type="image/png" href="images/favicon.png">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -814,10 +815,11 @@ const translations = {
   }
 };
 
-let currentLang = 'ru';
+let currentLang = 'en';
 
 function setLang(lang) {
   currentLang = lang;
+  localStorage.setItem('lang', lang);
   document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
   document.querySelectorAll('.lang-btn').forEach(b => {
     if (b.textContent.toLowerCase() === lang) b.classList.add('active');
@@ -982,7 +984,7 @@ function updateSlider(id, total) {
 
 // Init
 renderApts();
-setLang('ru');
+setLang(localStorage.getItem('lang') || 'en');
 </script>
 </body>
 </html>
